@@ -1,0 +1,13 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "img": "",
+      "title": "Title",
+      "text": "Değiştiriciler kullanılırken sıra önemlidir çünkü ilgili kod aynı sırada oluşturulur. Bu nedenle kullanmak @click.prevent.self, öğenin kendisinde ve alt öğelerinde tıklamaların varsayılan eylemini engellerken @click.self.prevent, yalnızca öğenin kendisinde tıklamaların varsayılan eylemini önleyecektir.",
+      "color": "#e8eaed",
+      "categories": [],
+      "show": true
+    }
+  ]
+}
