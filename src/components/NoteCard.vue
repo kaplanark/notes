@@ -1,10 +1,10 @@
 <template>
     <div class="notes-wrapper">
-        <div class="note-col" v-for="(note, index) in $store.state.notes" :key="index">
+        <div class="note-col" v-for="(note, index) in notes" :key="index">
             <v-hover v-slot="{ hover }">
                 <v-card :color="note.color" :elevation="hover ? 4 : 1" :class="{ 'on-hover': hover }" v-show="note.show"
                     class="note-card">
-                    <div class="show-content" @click="showNote(note)">
+                    <div class="show-content" @click="editNote(note)">
                         <v-img height="auto" :src="note.img"></v-img>
                         <v-card-title v-if="note.title.length > 0">
                             {{ note.title }}
@@ -14,7 +14,7 @@
                         </v-card-text>
                         <v-card-text v-if="note.categories.length > 0">
                             <v-chip-group v-model="selection" active-class="deep-purple accent-4 white--text" column>
-                                <v-chip class="ma-2" close @click:close="deteleCategori(note, index)" small
+                                <v-chip class="ma-2" close @click:close="deleteNoteCategori(note, index)" small
                                     v-for="(categori, index) in note.categories" :key="index">
                                     {{ categori }}
                                 </v-chip>
@@ -24,7 +24,7 @@
                     <v-card-actions class="d-block">
                         <v-expand-transition>
                             <div width="100%" v-show="hover" class="text-center">
-                                <v-btn class="mx-2" fab dark x-small color="secondary" icon @click="showColor(note)">
+                                <v-btn class="mx-2" fab dark x-small color="secondary" icon>
                                     <v-icon dark>
                                         mdi-palette
                                     </v-icon>
@@ -56,53 +56,29 @@
         </div>
     </div>
 </template>
-
 <script>
 export default {
-    data: () => ({
-        selection: 1,
-        chip1: true,
-        chip2: true,
-    }),
-    methods: {
-        showNote(note) {
-            this.$store.state.edit_note_dialog = true;
-            this.$store.state.showNote = note;
-            note.show = false;
-        },
-        showColor(note) {
-            this.$store.state.edit_color_dialog = true;
-            this.$store.state.showColor = note;
-        },
-        deteleCategori(note, index) {
-            note.categories.splice(index, 1)
-            this.$axios.put(`/notes/${note.id}`, note)
-                .then(response => {
-
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-        },
-        async deleteNote(note) {
-            this.$axios.delete(`/notes/${note.id}`)
-                .then(response => {
-                    this.$store.state.notes = this.$store.state.notes.filter(t => t.id !== note.id)
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-        }
+    mounted() {
+        this.$store.dispatch('getNotes');
     },
-    async mounted() {
-        this.$axios.get("/notes")
-            .then(response => {
-                this.$store.state.notes = response.data
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
+    computed: {
+        notes() {
+            return this.$store.state.notes;
+        },
+    },
+    methods: {
+        editNote(note) {
+            this.$store.state.edit_note_dialog = true;
+            this.$store.state.note = note
+        },
+        deleteNote(note) {
+            this.$store.dispatch('deleteNote', note);
+        },
+        deleteNoteCategori(note, index) {
+            this.$store.dispatch('deleteNoteCategori', { note, index });
+        },
+    },
+
 }
 </script>
 <style>
@@ -115,7 +91,7 @@ export default {
     margin-bottom: 24px;
 }
 
-.show-content{
+.show-content {
     cursor: pointer;
 }
 
@@ -133,6 +109,7 @@ export default {
         -moz-column-count: 3;
     }
 }
+
 @media (max-width:992px) {
     .notes-wrapper {
         column-count: 2;

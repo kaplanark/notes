@@ -34,27 +34,23 @@ export default {
             color: '',
             categories: [],
             show: true,
-            x: 0,
-            y: 0,
-            width: 3,
-            height: 3,
         }
     }),
     methods: {
-        async addNote() {
-            if (this.data.img.length > 0 || this.data.text.length > 0 || this.data.title.length > 0) {
-                this.$axios.post("/notes", this.data)
-                    .then(response => {
-                        this.$store.state.notes.push(response.data);
-                        this.data = { id: null, img: '', title: '', text: '', color: '', categories: [], show: true }
-                    })
-                    .catch(error => {
-                        console.log(error)
-                    })
-            } else {
-                this.data = { id: null, img: '', title: '', text: '', color: '', categories: [], show: true }
+        addNote() {
+            if (this.data.text.length > 0 || this.data.img.length > 0 || this.data.title.length > 0) {
+                this.$store.dispatch('addNote', this.data);
             }
-        }
+            this.data = {
+                id: null,
+                img: '',
+                title: '',
+                text: '',
+                color: '',
+                categories: [],
+                show: true,
+            }
+        },
     },
     created() {
         this.id = Math.random();

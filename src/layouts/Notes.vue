@@ -1,21 +1,21 @@
 <template>
   <div>
     <NoteCard></NoteCard>
-    <NewNote></NewNote>
-    <ShowNote></ShowNote>
+    <AddNote></AddNote>
+    <UpdateNote></UpdateNote>
     <EditColors></EditColors>
   </div>
 </template>
 <script>
 import NoteCard from '../components/NoteCard.vue';
-import ShowNote from '@/components/ShowNote.vue';
-import NewNote from '@/components/NewNote.vue';
+import UpdateNote from '@/components/UpdateNote.vue';
+import AddNote from '@/components/AddNote.vue';
 import EditColors from '@/components/EditColors.vue';
 export default {
   data() {
     return {
     };
   },
-  components: { NoteCard, ShowNote, NewNote, EditColors },
+  components: { NoteCard, UpdateNote, AddNote, EditColors },
 }
 </script>

@@ -3,9 +3,21 @@
     {
       "id": 1,
       "img": "",
-      "title": "Title",
-      "text": "Değiştiriciler kullanılırken sıra önemlidir çünkü ilgili kod aynı sırada oluşturulur. Bu nedenle kullanmak @click.prevent.self, öğenin kendisinde ve alt öğelerinde tıklamaların varsayılan eylemini engellerken @click.self.prevent, yalnızca öğenin kendisinde tıklamaların varsayılan eylemini önleyecektir.",
+      "title": "Note",
+      "text": "NoteNoteNoteNoteNotecdcdc",
       "color": "#e8eaed",
+      "categories": [
+        "all",
+        "important"
+      ],
+      "show": true
+    },
+    {
+      "id": 2,
+      "img": "",
+      "title": "wdwdedede",
+      "text": "edewd",
+      "color": "#f28b82",
       "categories": [],
       "show": true
     }
