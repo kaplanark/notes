@@ -23,7 +23,7 @@
                     </div>
                     <v-card-actions class="d-block">
                         <v-expand-transition>
-                            <div width="100%" v-show="hover" class="text-center">
+                            <div width="100%" class="tool-buttons text-center">
                                 <v-btn class="mx-2" fab dark x-small color="secondary" icon>
                                     <v-icon dark>
                                         mdi-palette
@@ -89,6 +89,15 @@ export default {
 .note-col {
     display: block;
     margin-bottom: 24px;
+}
+.tool-buttons{
+    opacity: 0;
+    transform: translateY(12px);
+    transition: all 0.3s ease-in-out;
+}
+.note-card:hover .tool-buttons{
+    opacity: 1;
+    transform: translateY(0px);
 }
 
 .show-content {

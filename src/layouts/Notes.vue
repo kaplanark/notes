@@ -3,19 +3,19 @@
     <NoteCard></NoteCard>
     <AddNote></AddNote>
     <UpdateNote></UpdateNote>
-    <EditColors></EditColors>
+    <CategoryDialog></CategoryDialog>
   </div>
 </template>
 <script>
 import NoteCard from '../components/NoteCard.vue';
 import UpdateNote from '@/components/UpdateNote.vue';
 import AddNote from '@/components/AddNote.vue';
-import EditColors from '@/components/EditColors.vue';
+import CategoryDialog from '@/components/CategoryDialog.vue';
 export default {
   data() {
     return {
     };
   },
-  components: { NoteCard, UpdateNote, AddNote, EditColors },
+  components: { NoteCard, UpdateNote, AddNote, CategoryDialog },
 }
 </script>

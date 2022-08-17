@@ -12,7 +12,7 @@
                         </v-textarea>
                         <div class="color-palette">
                             <input type="radio" v-model="note.color" name="color" value="#f28b82" id="f28b82">
-                            <input type="radio" v-model="color" name="color" value="#ccff90" id="ccff90">
+                            <input type="radio" v-model="note.color" name="color" value="#ccff90" id="ccff90">
                             <input type="radio" v-model="note.color" name="color" value="#fbbc04" id="fbbc04">
                             <input type="radio" v-model="note.color" name="color" value="#e8eaed" id="e8eaed">
                         </div>
@@ -24,12 +24,16 @@
 </template>
 <script>
 export default {
-    data: () => ({
-        categories: ['all', 'favorite', 'important'],
-    }),
     computed: {
         note() {
             return this.$store.state.note;
+        },
+        categories() {
+            let data = [];
+            this.$store.state.categories.forEach(category => {
+                data.push(category.value);
+            });
+            return data;
         },
     },
     methods: {

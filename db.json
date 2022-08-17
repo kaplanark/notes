@@ -1,25 +1,30 @@
 {
-  "notes": [
+  "notes": [],
+  "categories": [
     {
       "id": 1,
-      "img": "",
-      "title": "Note",
-      "text": "NoteNoteNoteNoteNotecdcdc",
-      "color": "#e8eaed",
-      "categories": [
-        "all",
-        "important"
-      ],
-      "show": true
+      "name": "Favorite",
+      "value": "favorite"
     },
     {
       "id": 2,
-      "img": "",
-      "title": "wdwdedede",
-      "text": "edewd",
-      "color": "#f28b82",
-      "categories": [],
-      "show": true
+      "name": "All",
+      "value": "all"
+    },
+    {
+      "id": 3,
+      "name": "İmportant",
+      "value": "important"
+    },
+    {
+      "id": 4,
+      "name": "Work",
+      "value": "work"
+    },
+    {
+      "id": 5,
+      "name": "Other",
+      "value": "other"
     }
   ]
 }

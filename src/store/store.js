@@ -9,10 +9,14 @@ export const store = new Vuex.Store({
         notes: [],
         note: {},
 
+        categories: [],
+
         new_note_dialog: false,
         edit_note_dialog: false,
+        category_dialog: false,
     },
     mutations: {
+        //TODO notes-----------------------------------------------------
         setNotes(state, data) {
             state.notes = data;
         },
@@ -39,9 +43,25 @@ export const store = new Vuex.Store({
                     state.notes[index] = note;
                 }
             })
+        },
+
+        //TODO categories-----------------------------------------------------
+        setCategories(state, data) {
+            state.categories = data;
+        },
+        addCategory(state, data) {
+            state.categories.push(data);
+        },
+        deleteCategory(state, category) {
+            state.categories.map((item, index) => {
+                if (item.id == category.id) {
+                    state.categories.splice(index, 1);
+                }
+            })
         }
     },
     actions: {
+        //!notes-----------------------------------------------------
         async getNotes({ commit }) {
             axios.get(baseUrl + '/notes')
                 .then(response => {
@@ -84,6 +104,32 @@ export const store = new Vuex.Store({
                     commit('updateNote', note)
                 })
                 .catch(error => {
+                    console.log(error)
+                })
+        },
+
+        //!categories-----------------------------------------------------
+        async getCategories({ commit }) {
+            axios.get(baseUrl + '/categories')
+                .then(response => {
+                    commit('setCategories', response.data)
+                }).catch(error => {
+                    console.log(error)
+                })
+        },
+        async addCategory({ commit }, data) {
+            axios.post(baseUrl + '/categories', data)
+                .then(response => {
+                    commit('addCategory', data)
+                }).catch(error => {
+                    console.log(error)
+                })
+        },
+        deleteCategory({ commit }, category) {
+            axios.delete(baseUrl + `/categories/${category.id}`)
+                .then(response => {
+                    commit('deleteCategory', category)
+                }).catch(error => {
                     console.log(error)
                 })
         }

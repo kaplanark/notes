@@ -25,7 +25,6 @@
 <script>
 export default {
     data: () => ({
-        categories: ['all', 'favorite', 'important'],
         data: {
             id: null,
             img: '',
@@ -36,6 +35,15 @@ export default {
             show: true,
         }
     }),
+    computed: {
+        categories() {
+            let data = [];
+            this.$store.state.categories.forEach(category => {
+                data.push(category.value);
+            });
+            return data;
+        },
+    },
     methods: {
         addNote() {
             if (this.data.text.length > 0 || this.data.img.length > 0 || this.data.title.length > 0) {
@@ -58,3 +66,50 @@ export default {
     },
 }
 </script>
+<style>
+.color-palette {
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 22px;
+}
+
+.color-palette input {
+    height: 24px;
+    width: 24px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.color-palette input::before {
+    position: absolute;
+    content: "";
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    border: 2px solid rgb(200, 200, 200);
+}
+
+.color-palette input:checked::before {
+    border-color: rgb(166, 42, 166);
+}
+
+#f28b82::before {
+    background-color: #f28b82;
+}
+
+#ccff90::before {
+    background-color: #ccff90;
+}
+
+#fbbc04::before {
+    background-color: #fbbc04;
+}
+
+#e8eaed::before {
+    background-color: #e8eaed;
+}
+</style>
