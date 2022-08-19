@@ -1,6 +1,6 @@
 <template>
     <div class="notes-wrapper">
-        <div class="note-col" v-for="(note, index) in notes" :key="index">
+        <div class="note-col" v-for="(note, index) in archived" :key="index">
             <v-hover v-slot="{ hover }">
                 <v-card :color="note.color" :elevation="hover ? 4 : 1" :class="{ 'on-hover': hover }" v-show="note.show"
                     class="note-card">
@@ -29,16 +29,18 @@
                                         mdi-palette
                                     </v-icon>
                                 </v-btn>
-
-                                <v-btn class="mx-2" fab dark x-small color="secondary" icon>
-                                    <v-icon dark>
-                                        mdi-heart
+                                <v-btn class="mx-2" fab dark x-small color="secondary" icon @click="updatePinned(note)">
+                                    <v-icon dark v-if="note.pinned">
+                                        mdi-pin-off-outline
+                                    </v-icon>
+                                    <v-icon dark v-else>
+                                        mdi-pin-outline
                                     </v-icon>
                                 </v-btn>
-
-                                <v-btn class="mx-2" fab dark x-small color="secondary" icon>
+                                <v-btn class="mx-2" fab dark x-small color="secondary" icon
+                                    @click="updateArchive(note)">
                                     <v-icon dark>
-                                        mdi-file-image-plus
+                                        mdi-archive-arrow-up-outline
                                     </v-icon>
                                 </v-btn>
 
@@ -49,81 +51,53 @@
                                 </v-btn>
                             </div>
                         </v-expand-transition>
-
                     </v-card-actions>
                 </v-card>
             </v-hover>
         </div>
+        <UpdateNote></UpdateNote>
     </div>
 </template>
 <script>
+import { archived } from '@/mixins/notes.js';
+import UpdateNote from '@/components/UpdateNote.vue';
 export default {
+    mixins: [archived],
     mounted() {
-        this.$store.dispatch('getNotes');
-    },
-    computed: {
-        notes() {
-            return this.$store.state.notes;
-        },
+        this.$store.dispatch("getNotes");
     },
     methods: {
         editNote(note) {
             this.$store.state.edit_note_dialog = true;
-            this.$store.state.note = note
+            this.$store.state.note = note;
         },
         deleteNote(note) {
-            this.$store.dispatch('deleteNote', note);
+            this.$store.dispatch("deleteNote", note);
         },
         deleteNoteCategori(note, index) {
-            this.$store.dispatch('deleteNoteCategori', { note, index });
+            this.$store.dispatch("deleteNoteCategori", { note, index });
         },
+        updatePinned(note) {
+            if (note.pinned) {
+                note.pinned = false;
+                this.$store.dispatch("updateNote", note);
+            }
+            else {
+                note.pinned = true;
+                this.$store.dispatch("updateNote", note);
+            }
+        },
+        updateArchive(note) {
+            if (note.archived) {
+                note.archived = false;
+                this.$store.dispatch("updateNote", note);
+            }
+            else {
+                note.archived = true;
+                this.$store.dispatch("updateNote", note);
+            }
+        }
     },
-
+    components: { UpdateNote }
 }
 </script>
-<style>
-.note-card {
-    overflow: hidden;
-}
-
-.note-col {
-    display: block;
-    margin-bottom: 24px;
-}
-.tool-buttons{
-    opacity: 0;
-    transform: translateY(12px);
-    transition: all 0.3s ease-in-out;
-}
-.note-card:hover .tool-buttons{
-    opacity: 1;
-    transform: translateY(0px);
-}
-
-.show-content {
-    cursor: pointer;
-}
-
-.notes-wrapper {
-    column-count: 4;
-    -webkit-column-count: 4;
-    -moz-column-count: 4;
-    margin-bottom: 32px;
-}
-
-@media (max-width:1400px) {
-    .notes-wrapper {
-        column-count: 3;
-        -webkit-column-count: 3;
-        -moz-column-count: 3;
-    }
-}
-
-@media (max-width:992px) {
-    .notes-wrapper {
-        column-count: 2;
-        -webkit-column-count: 2;
-        -moz-column-count: 2;
-    }
-}
-</style>

@@ -5,8 +5,8 @@
                 <v-card-text class="pt-4">
                     <v-text-field v-model="name" label="New Category" @keyup.enter="addCategory"></v-text-field>
                     <div class="text-center">
-                        <v-chip class="ma-2" v-for="(category, index) in categories" :key="index"
-                            color="light" close @click:close="deleteCategory(category)">
+                        <v-chip class="ma-2" v-for="(category, index) in categories" :key="index" color="light" close
+                            @click:close="deleteCategory(category)">
                             {{ category.value }}
                         </v-chip>
                     </div>
@@ -16,13 +16,17 @@
     </v-row>
 </template>
 <script>
+
 export default {
     data() {
         return {
-            id: null,
+            id: Math.random().toFixed(5),
             name: '',
             value: '',
         }
+    },
+    mounted() {
+        this.$store.dispatch('getCategories');
     },
     computed: {
         categories() {
@@ -39,6 +43,7 @@ export default {
             if (data.name.length > 0) {
                 this.$store.dispatch('addCategory', data);
             }
+            this.id= Math.random().toFixed(5);
             this.name = '';
         },
         deleteCategory(category) {
@@ -47,9 +52,6 @@ export default {
         clearInput() {
             this.name = '';
         }
-    },
-    created() {
-        this.id = Math.random();
-    },
+    }
 }
 </script>

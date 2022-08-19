@@ -9,7 +9,7 @@
             <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title>
                 <span>{{ $route.name }}</span>
-                <v-btn-toggle v-model="toggle_exclusive" mandatory>
+                <v-btn-toggle v-model="toggle_exclusive" mandatory v-if="$route.name=='Notes'">
                     <v-btn text color="dark" @click="newNote" small>
                         <span class="mr-2">New Note</span>
                         <v-icon>mdi-plus</v-icon>

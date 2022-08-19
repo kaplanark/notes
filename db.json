@@ -1,91 +1,101 @@
 {
   "notes": [
     {
-      "id": 1,
+      "id": "0.72075",
       "img": "",
       "title": "Lorem ipsum dolor sit amet",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "color": "#e8eaed",
+      "categories": [],
+      "show": true,
+      "pinned": false,
+      "archived": false
+    },
+    {
+      "id": "0.63056",
+      "img": "",
+      "title": "",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate",
+      "color": "#f28b82",
       "categories": [
         "favorite",
-        "all",
-        "important",
-        "work",
-        "other"
+        "i̇mportant"
       ],
-      "show": true
+      "show": true,
+      "pinned": false,
+      "archived": false
     },
     {
-      "id": 2,
+      "id": "0.21585",
       "img": "",
-      "title": "Lorem ipsum dolor sit amet,",
-      "text": "consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "title": "Lorem ipsum dolor",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "color": "#ccff90",
-      "categories": [],
-      "show": true
+      "categories": [
+        "work",
+        "homework"
+      ],
+      "show": true,
+      "pinned": false,
+      "archived": true
     },
     {
-      "id": 3,
+      "id": "0.18022",
       "img": "",
-      "title": "Lorem ipsum dolor sit amet",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "title": "Lorem ipsum dolor",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
       "color": "#fbbc04",
       "categories": [],
-      "show": true
+      "show": true,
+      "pinned": false,
+      "archived": false
     },
     {
-      "id": 4,
-      "img": "https://media.istockphoto.com/photos/hot-air-balloons-flying-over-the-botan-canyon-in-turkey-picture-id1297349747?b=1&k=20&m=1297349747&s=170667a&w=0&h=oH31fJty_4xWl_JQ4OIQWZKP8C6ji9Mz7L4XmEnbqRU=",
+      "id": "0.30526",
+      "img": "https://c4.wallpaperflare.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-preview.jpg",
       "title": "",
       "text": "",
       "color": "",
       "categories": [],
-      "show": true
+      "show": true,
+      "pinned": true,
+      "archived": false
     },
     {
-      "id": 5,
+      "id": "0.14782",
       "img": "",
-      "title": "",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "color": "",
-      "categories": [],
-      "show": true
-    },
-    {
-      "id": 6,
-      "img": "",
-      "title": "",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "color": "",
-      "categories": [],
-      "show": true
+      "title": "Lorem ipsum dolor sit amet",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+      "color": "#ccff90",
+      "categories": [
+        "work",
+        "bussines"
+      ],
+      "show": true,
+      "pinned": false,
+      "archived": false
     }
   ],
   "categories": [
     {
-      "id": 1,
-      "name": "Favorite",
-      "value": "favorite"
-    },
-    {
-      "id": 2,
-      "name": "All",
-      "value": "all"
-    },
-    {
-      "id": 3,
-      "name": "İmportant",
-      "value": "important"
-    },
-    {
-      "id": 4,
+      "id": 0.6944616693805412,
       "name": "Work",
       "value": "work"
     },
     {
-      "id": 5,
-      "name": "Other",
-      "value": "other"
+      "id": "0.05783",
+      "name": "Bussines",
+      "value": "bussines"
+    },
+    {
+      "id": "0.65928",
+      "name": "İmportant",
+      "value": "i̇mportant"
+    },
+    {
+      "id": "0.68221",
+      "name": "Favorite",
+      "value": "favorite"
     }
   ]
 }

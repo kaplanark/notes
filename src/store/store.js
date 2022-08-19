@@ -10,13 +10,13 @@ export const store = new Vuex.Store({
         note: {},
 
         categories: [],
+        category_dialog: {},
 
         new_note_dialog: false,
         edit_note_dialog: false,
         category_dialog: false,
     },
     mutations: {
-        //TODO notes-----------------------------------------------------
         setNotes(state, data) {
             state.notes = data;
         },
@@ -45,7 +45,7 @@ export const store = new Vuex.Store({
             })
         },
 
-        //TODO categories-----------------------------------------------------
+        //? category
         setCategories(state, data) {
             state.categories = data;
         },
@@ -61,7 +61,7 @@ export const store = new Vuex.Store({
         }
     },
     actions: {
-        //!notes-----------------------------------------------------
+        //!notes
         async getNotes({ commit }) {
             axios.get(baseUrl + '/notes')
                 .then(response => {
@@ -108,7 +108,7 @@ export const store = new Vuex.Store({
                 })
         },
 
-        //!categories-----------------------------------------------------
+        //!categories
         async getCategories({ commit }) {
             axios.get(baseUrl + '/categories')
                 .then(response => {
