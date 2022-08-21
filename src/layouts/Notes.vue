@@ -1,12 +1,15 @@
 <template>
-  <div>
-    <v-subheader v-if="pinned.length > 0" v-text="subheader.pinned"></v-subheader>
-    <PinnedCard :pinned="pinned"></PinnedCard>
-    <v-subheader v-if="pinned.length > 0" v-text="subheader.other"></v-subheader>
-    <UnpinnedCard :unpinned="unpinned"></UnpinnedCard>
-    <AddNote></AddNote>
-    <UpdateNote></UpdateNote>
-    <CategoryDialog></CategoryDialog>
+  <div id="notes">
+    <v-container fluid>
+      <v-subheader v-if="pinned.length > 0" v-text="subheader.pinned"></v-subheader>
+      <PinnedCard :pinned="pinned"></PinnedCard>
+      <v-subheader v-if="pinned.length > 0" v-text="subheader.other"></v-subheader>
+      <UnpinnedCard :unpinned="unpinned"></UnpinnedCard>
+      <AddNote></AddNote>
+      <UpdateNote></UpdateNote>
+      <CategoryDialog></CategoryDialog>
+    </v-container>
+    <Navigation></Navigation>
   </div>
 </template>
 <script>
@@ -17,33 +20,43 @@ import AddNote from '@/components/AddNote.vue';
 import CategoryDialog from '@/components/CategoryDialog.vue';
 
 import { pinned, unpinned } from '@/mixins/notes.js';
+import Navigation from '@/components/Navigation.vue';
 
 export default {
   mixins: [pinned, unpinned],
+  name: 'Notes',
   data() {
     return {
       subheader: {
         other: 'Other',
         pinned: 'Pinned',
-      }
+      },
     }
   },
-  components: { UnpinnedCard, PinnedCard, UpdateNote, AddNote, CategoryDialog },
+  components: { UnpinnedCard, PinnedCard, UpdateNote, AddNote, CategoryDialog, Navigation },
+  beforeCreate() {
+    this.$store.dispatch('getNotes');
+  },
 }
 </script>
 <style>
+#notes {
+  position: relative;
+  height: 100%;
+}
+
 .pinned {
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
   border-radius: 4px;
 }
 
-.note-card {
-  overflow: hidden;
-}
-
 .note-col {
   display: block;
   margin-bottom: 24px;
+}
+
+.note-card {
+  overflow: hidden;
 }
 
 .tool-buttons {
@@ -65,7 +78,7 @@ export default {
   column-count: 4;
   -webkit-column-count: 4;
   -moz-column-count: 4;
-  margin-bottom: 32px;
+  padding-bottom: 72px;
 }
 
 @media (max-width:1400px) {
@@ -83,6 +96,7 @@ export default {
     -moz-column-count: 2;
   }
 }
+
 @media (max-width:650px) {
   .notes-wrapper {
     column-count: 1;

@@ -6,11 +6,11 @@ import { routes } from './routes.js'
 import {store} from "./store/store";
 
 
-// import axios from 'axios'
-// const axiosInstance = axios.create({
-//   baseURL: "http://localhost:3000"
-// });
-// Vue.prototype.$axios = axiosInstance;
+import axios from 'axios'
+const axiosInstance = axios.create({
+  baseURL: "http://localhost:5000"
+});
+Vue.prototype.$axios = axiosInstance;
 
 
 Vue.config.productionTip = false

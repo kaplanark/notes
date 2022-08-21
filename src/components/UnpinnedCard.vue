@@ -1,6 +1,7 @@
 <template>
     <div class="notes-wrapper">
         <div class="note-col" v-for="(note, index) in unpinned" :key="index">
+            <input type="checkbox" :value="note" class="select-box" v-model="checked"/>
             <v-hover v-slot="{ hover }">
                 <v-card :color="note.color" :elevation="hover ? 4 : 1" :class="{ 'on-hover': hover }" v-show="note.show"
                     class="note-card">
@@ -60,8 +61,10 @@
 <script>
 export default {
     props: ['unpinned'],
-    mounted() {
-        this.$store.dispatch('getNotes');
+    data() {
+        return {
+            checked:[],
+        }
     },
     methods: {
         editNote(note) {
@@ -94,5 +97,66 @@ export default {
             }
         }
     },
+    watch: {
+        checked(newValue) {
+            if (newValue.length > 0) {
+                this.$store.state.navigation = true;
+            } else {
+                this.$store.state.navigation = false;
+            }
+            this.$store.state.selections = newValue;
+        }
+    }
 }
 </script>
+
+<style lang="scss">
+.note-col {
+    position: relative;
+    .select-box {
+        z-index: 6;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 14px;
+        width: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity .2s ease-in-out;
+        background-color: #fff;
+        border-color: #fff;
+
+        &::before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+        &::after{
+            position: absolute;
+            content: "";
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            background-image: url(./../assets/check.svg);
+        }
+        &:checked {
+            opacity: 1;
+            &+.note-card {
+               opacity: 0.5;
+            }
+        }
+    }
+
+    &:hover {
+        .select-box {
+            opacity: 1;
+        }
+    }
+}
+</style>

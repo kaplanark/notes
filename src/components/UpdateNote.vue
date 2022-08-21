@@ -40,7 +40,7 @@ export default {
         updateNote() {
             this.$store.dispatch('updateNote', this.$store.state.note);
         },
-    }
+    },
 }
 </script>
 <style>

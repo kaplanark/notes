@@ -1,6 +1,7 @@
 <template>
     <div class="notes-wrapper">
         <div class="note-col" v-for="(note, index) in pinned" :key="index" :class="note.pinned ? 'pinned' : ''">
+            <input type="checkbox" :value="note" class="select-box" v-model="checked" />
             <v-hover v-slot="{ hover }">
                 <v-card :color="note.color" :elevation="hover ? 4 : 1" :class="{ 'on-hover': hover }" v-show="note.show"
                     class="note-card">
@@ -60,8 +61,10 @@
 <script>
 export default {
     props: ['pinned'],
-    mounted() {
-        this.$store.dispatch('getNotes');
+    data() {
+        return {
+            checked: [],
+        }
     },
     methods: {
         editNote(note) {
@@ -94,5 +97,15 @@ export default {
             }
         }
     },
+    watch: {
+        checked(newValue) {
+            if (newValue.length > 0) {
+                this.$store.state.navigation = true;
+            } else {
+                this.$store.state.navigation = false;
+            }
+            this.$store.state.selections = newValue;
+        }
+    }
 }
 </script>

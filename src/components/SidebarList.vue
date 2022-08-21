@@ -2,6 +2,23 @@
     <div>
         <v-list shaped>
             <v-list-item-group v-model="selectedItem" color="primary">
+                <!-- <v-list>
+                    <v-list-item link>
+                        <v-list-item-avatar>
+                            <v-img :src="user.avatar_url"></v-img>
+                        </v-list-item-avatar>
+                        <v-list-item-content>
+                            <v-list-item-title class="text-h6">
+                                {{user.login}}
+                            </v-list-item-title>
+                            <v-list-item-subtitle>{{user.email}}</v-list-item-subtitle>
+                        </v-list-item-content>
+
+                        <v-list-item-action>
+                            <v-icon>mdi-menu-down</v-icon>
+                        </v-list-item-action>
+                    </v-list-item>
+                </v-list> -->
                 <router-link tag="span" to="/notes">
                     <v-list-item link>
                         <v-list-item-icon>
@@ -32,7 +49,13 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
 export default {
+    data() {
+        return {
+            user: null
+        }
+    },
     computed: {
         categories() {
             return this.$store.state.categories;
@@ -41,5 +64,14 @@ export default {
     mounted() {
         this.$store.dispatch('getCategories');
     },
+    // created() {
+    //     axios.get('http://localhost:5000/users')
+    //         .then(response => {
+    //             this.user = response.data;
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         });
+    // },
 }
 </script>

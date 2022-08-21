@@ -23,9 +23,10 @@
     </v-row>
 </template>
 <script>
+import { v4 as uuidv4 } from 'uuid';
 export default {
     data: () => ({
-        data: { id: Math.random().toFixed(5), img: '', title: '', text: '', color: '', categories: [], show: true, pinned: false, archived: false, }
+        data: { id: uuidv4(), img: '', title: '', text: '', color: '', categories: [], show: true, pinned: false, archived: false, }
     }),
     computed: {
         categories() {
@@ -41,7 +42,7 @@ export default {
             if (this.data.text.length > 0 || this.data.img.length > 0 || this.data.title.length > 0) {
                 this.$store.dispatch('addNote', this.data);
             }
-            this.data = { id: Math.random().toFixed(5), img: '', title: '', text: '', color: '', categories: [], show: true, pinned: false, archived: false, };
+            this.data = { id: uuidv4(), img: '', title: '', text: '', color: '', categories: [], show: true, pinned: false, archived: false, };
         },
     },
 }
