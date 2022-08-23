@@ -1,4 +1,4 @@
-# notes
+# Notes App Frontend
 ## Vue
 ## Vuex
 ## json-server
