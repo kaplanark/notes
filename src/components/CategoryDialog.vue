@@ -17,10 +17,11 @@
 </template>
 <script>
 
+import { v4 as uuidv4 } from 'uuid';
 export default {
     data() {
         return {
-            id: Math.random().toFixed(5),
+            id: uuidv4(),
             name: '',
             value: '',
         }
@@ -43,7 +44,7 @@ export default {
             if (data.name.length > 0) {
                 this.$store.dispatch('addCategory', data);
             }
-            this.id= Math.random().toFixed(5);
+            this.id= uuidv4();
             this.name = '';
         },
         deleteCategory(category) {

@@ -1,56 +1,69 @@
 <template>
     <div id="login">
         <v-container>
-            <v-row>
-                <v-col md="6" offset-md="3">
-                    <v-card>
-                        <a :href="link + client_id" class="btn-github"> Github Login</a>
-                    </v-card>
-                </v-col>
-            </v-row>
+            <div class="container">
+                <div v-if="error.status" class="row mt-5">
+                    <div class="col d-flex justify-content-center">
+                        <div class="alert alert-danger">
+                            {{ error.message }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col d-flex justify-content-center">
+                        <form @submit.prevent="login()">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" id="username" aria-describedby="emailHelp"
+                                    placeholder="Enter username" v-model="credentials.username" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" placeholder="Password"
+                                    v-model="credentials.password" />
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">
+                                Login
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </v-container>
     </div>
 </template>
 <script>
 export default {
-    name: 'Login',
     data() {
         return {
-            link: 'https://github.com/login/oauth/authorize?client_id=',
-            client_id: "",
-        }
+            error: {
+                status: false,
+                message: "",
+            },
+            credentials: {
+                username: "",
+                password: "",
+            },
+        };
     },
-    created() {
-        this.$axios.get('/github/auth')
-            .then(response => {
-                this.client_id = response.data.client_id
-            }).catch(error => {
-                console.log(error)
-            })
+    methods: {
+        login() {
+            let payload = { ...this.credentials };
+            this.$store
+                .dispatch("loginRequest", payload)
+                .then(() => {
+                    this.$router.push({ name: "Notes" });
+                })
+                .catch((error) => {
+                    (this.error.status = true),
+                        (this.error.message =
+                            error.response.data ||
+                            error.response.error ||
+                            error.response.detail ||
+                            "Unable to login with given credentials.");
+                });
+        },
     },
-}
+};
 </script>
-<style lang="scss">
-#login {
-    height: 100vh;
-
-    .container {
-        height: 100%;
-
-        .row {
-            height: 100%;
-            align-items: center;
-            justify-content: center;
-        }
-    }
-}
-
-.btn-github {
-    display: block;
-    padding: 12px 16px;
-    background-color: black;
-    width: fit-content;
-    color: white;
-    text-decoration: none;
-}
-</style>

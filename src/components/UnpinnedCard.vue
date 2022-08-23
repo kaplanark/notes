@@ -114,7 +114,7 @@ export default {
 .note-col {
     position: relative;
     .select-box {
-        z-index: 6;
+        z-index: 2;
         opacity: 0;
         position: absolute;
         top: 0;

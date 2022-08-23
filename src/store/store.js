@@ -2,10 +2,20 @@ import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
 const baseUrl = "http://localhost:3000";
+import userService from "./../services/user";
 Vue.use(Vuex);
+
+const initialUser = () => {
+    let token = localStorage.getItem("accessToken");
+    if (token)
+        return { loggedIn: true, username: "", role: "", accessToken: token };
+    else return { loggedIn: false, username: "", role: "", accessToken: null };
+};
 
 export const store = new Vuex.Store({
     state: {
+        user: initialUser(),
+
         notes: [],
         note: {},
 
@@ -19,6 +29,10 @@ export const store = new Vuex.Store({
         category_dialog: false,
         navigation: false,
     },
+    getters: {
+        isLoggedIn: (state) => state.user.loggedIn,
+        userData: (state) => state.user,
+    },
     mutations: {
         setNotes(state, data) { state.notes = data },
         addNote(state, data) { state.notes.push(data) },
@@ -27,7 +41,20 @@ export const store = new Vuex.Store({
         updateNote(state, note) { state.notes.map((item, index) => { if (item.id == note.id) item = note }) },
         setCategories(state, data) { state.categories = data },
         addCategory(state, data) { state.categories.push(data) },
-        deleteCategory(state, category) { state.categories.map((item, index) => { if (item.id == category.id) { state.categories.splice(index, 1) } }) }
+        deleteCategory(state, category) { state.categories.map((item, index) => { if (item.id == category.id) { state.categories.splice(index, 1) } }) },
+
+        loginSuccess(state, token) {
+            state.user.loggedIn = true;
+            state.user.accessToken = token;
+            localStorage.setItem("accessToken", token);
+        },
+        logout(state) {
+            (state.user.loggedIn = false), localStorage.removeItem("accessToken");
+        },
+        setUserData(state, userInfo) {
+            (state.user.role = userInfo.group),
+                (state.user.username = userInfo.username);
+        },
     },
     actions: {
         async getNotes({ commit }) {
@@ -72,7 +99,6 @@ export const store = new Vuex.Store({
                     commit("deleteCategory", category)
                 }).catch(error => { console.log(error) })
         },
-
         async deleteNotes({ commit }, selections) {
             selections.map(async (selection) => await axios.delete(baseUrl + `/notes/${selection.id}`).then
                 (() => {
@@ -80,7 +106,6 @@ export const store = new Vuex.Store({
                 }).catch(error => { console.log('error:', error) }))
             this.state.navigation = false;
         },
-
         async archiveNotes({ commit }, selections) {
             selections.map(async (selection) => {
                 await axios.put(baseUrl + `/notes/${selection.id}`, { ...selection, archived: true }).then(response => {
@@ -95,6 +120,46 @@ export const store = new Vuex.Store({
                 })
             })
             this.state.navigation = false;
-        }
+        },
+
+        //TODO------------------------------------------------------
+        async loginRequest(context, credentials) {
+            return userService
+                .login(credentials)
+                .then((response) => {
+                    context.commit("loginSuccess", response.data.access);
+                    return Promise.resolve(response.data);
+                })
+                .catch((error) => {
+                    return Promise.reject(error);
+                });
+        },
+        async registerRequest(context, payload) {
+            return userService
+                .register(payload)
+                .then((response) => {
+                    return Promise.resolve(response.data);
+                })
+                .catch((error) => {
+                    return Promise.reject(error);
+                });
+        },
+        async getUserData(context) {
+            return userService
+                .userDetail()
+                .then((response) => {
+                    context.commit("setUserData", response.data);
+                    return Promise.resolve(response.data);
+                })
+                .catch((error) => {
+                    return Promise.reject(error);
+                });
+        },
+        async logoutRequest(context) {
+            return new Promise((resolve) => {
+                context.commit("logout");
+                resolve();
+            });
+        },
     }
 })

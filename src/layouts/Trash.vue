@@ -1,7 +1,7 @@
 <template>
     <v-container fluid>
         <div class="notes-wrapper">
-            <div class="note-col" v-for="(note, index) in archived" :key="index">
+            <div class="note-col" v-for="(note, index) in trashed" :key="index">
                 <v-hover v-slot="{ hover }">
                     <v-card :color="note.color" :elevation="hover ? 4 : 1" :class="{ 'on-hover': hover }"
                         v-show="note.show" class="note-card">
@@ -64,10 +64,10 @@
     </v-container>
 </template>
 <script>
-import { archived } from '@/mixins/notes.js';
+import { trashed } from '@/mixins/notes.js';
 import UpdateNote from '@/components/UpdateNote.vue';
 export default {
-    mixins: [archived],
+    mixins: [trashed],
     mounted() {
         this.$store.dispatch("getNotes");
     },
@@ -89,7 +89,6 @@ export default {
             }
             else {
                 note.pinned = true;
-                note.archived = false;
                 this.$store.dispatch("updateNote", note);
             }
         },

@@ -75,25 +75,25 @@ export default {
 }
 
 .notes-wrapper {
-  column-count: 4;
-  -webkit-column-count: 4;
+  column-count: 5;
+  -webkit-column-count: 5;
   -moz-column-count: 4;
   padding-bottom: 72px;
 }
 
 @media (max-width:1400px) {
   .notes-wrapper {
-    column-count: 3;
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
+    column-count: 4;
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
   }
 }
 
 @media (max-width:992px) {
   .notes-wrapper {
-    column-count: 2;
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
+    column-count: 3;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
   }
 }
 

@@ -3,107 +3,107 @@
     {
       "id": "fb1702e0-f96b-40dc-bdd1-b1b2644422ce",
       "img": "",
-      "title": "Lorem ipsum dolor sit amet",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "title": "Lorem ipsum dolor sit amet Trahison",
+      "text": "Lorem ipsum dolor sit amet",
       "color": "#fbbc04",
-      "categories": [],
+      "categories": ["work"],
       "show": true,
       "pinned": true,
-      "archived": false
+      "archived": false,
+      "trashed": false
     },
     {
       "id": "8a2a4517-2fd7-4a93-bb39-13f9afc781e3",
       "img": "",
       "title": "",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ",
       "color": "#e8eaed",
-      "categories": [],
+      "categories": ["bussines"],
       "show": true,
-      "pinned": true,
-      "archived": false
+      "pinned": false,
+      "archived": false,
+      "trashed": false
     },
     {
       "id": "de42a024-092b-4af3-8598-76683924e9d5",
       "img": "",
       "title": "",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo",
       "color": "#ccff90",
       "categories": [],
       "show": true,
-      "pinned": false,
-      "archived": false
+      "pinned": true,
+      "archived": false,
+      "trashed": false
     },
     {
       "id": "fe7c510b-55e6-4043-a2f8-7875c312dbee",
       "img": "",
       "title": "",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
       "color": "#f28b82",
-      "categories": [],
+      "categories": ["favorite"],
       "show": true,
-      "pinned": true,
-      "archived": false
+      "pinned": false,
+      "archived": true,
+      "trashed": false
     },
     {
       "id": "40057b99-dc68-4853-86f1-d52c25191013",
       "img": "",
       "title": "",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "color": "#e8eaed",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo",
+      "color": "#ccff90",
       "categories": [],
       "show": true,
       "pinned": false,
-      "archived": true
+      "archived": false,
+      "trashed": false
     },
     {
       "id": "76e3239d-25df-4d48-aded-7b77ea725b42",
       "img": "",
       "title": "",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "color": "#e8eaed",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ",
+      "color": "#f28b82",
       "categories": [],
       "show": true,
       "pinned": false,
-      "archived": true
+      "archived": false,
+      "trashed": false
     },
     {
-      "id": "e69d8d88-dcfa-4632-8c39-e0b28ce37b62",
-      "img": "",
+      "img": "https://google.com",
       "title": "Lorem ipsum dolor sit amet",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "color": "",
-      "categories": [],
-      "show": true,
-      "pinned": true,
-      "archived": false
-    },
-    {
-      "id": "640156d9-9936-48f6-a06f-8baf6422b2c7",
-      "img": "",
-      "title": "",
-      "text": "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet",
-      "color": "#fbbc04",
-      "categories": [],
+      "text": "Lorem ipsum dolor sit ",
+      "color": "#333",
+      "categories": "i̇mportant",
       "show": true,
       "pinned": false,
-      "archived": true
+      "archived": false,
+      "trashed": false
     }
   ],
   "categories": [
     {
-      "id": 0.6944616693805412,
+      "id": "6a221e1e-b556-4712-84f1-882353e54ddc",
+      "name": "Favorite",
+      "value": "favorite"
+    },
+    {
+      "id": "f06f1c45-3657-41f6-975e-10adb2752d6b",
+      "name": "İmportant",
+      "value": "i̇mportant"
+    },
+    {
+      "id": "95720080-0358-4320-9bad-725a98345452",
       "name": "Work",
       "value": "work"
     },
     {
-      "id": "0.05783",
+      "id": "b71767bd-0bfb-4ad6-bd33-59b5aae66c5f",
       "name": "Bussines",
       "value": "bussines"
-    },
-    {
-      "id": "0.65928",
-      "name": "İmportant",
-      "value": "i̇mportant"
     }
   ]
 }
