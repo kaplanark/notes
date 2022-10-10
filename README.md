@@ -20,3 +20,20 @@ You can use this application in your personal projects and commercial projects. 
 
 <img src="./screenshot/screen.png" />
 
+# Installation
+
+`npm install`
+
+# Run
+
+`npm run serve`
+
+
+# Json Server
+`npm install -g json-server`
+`json-server --watch db.json`
+
+
+
+
+
