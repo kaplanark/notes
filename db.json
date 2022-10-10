@@ -6,7 +6,9 @@
       "title": "Lorem ipsum dolor sit amet Trahison",
       "text": "Lorem ipsum dolor sit amet",
       "color": "#fbbc04",
-      "categories": ["work"],
+      "categories": [
+        "work"
+      ],
       "show": true,
       "pinned": true,
       "archived": false,
@@ -18,7 +20,9 @@
       "title": "",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ",
       "color": "#e8eaed",
-      "categories": ["bussines"],
+      "categories": [
+        "bussines"
+      ],
       "show": true,
       "pinned": false,
       "archived": false,
@@ -42,7 +46,9 @@
       "title": "",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
       "color": "#f28b82",
-      "categories": ["favorite"],
+      "categories": [
+        "favorite"
+      ],
       "show": true,
       "pinned": false,
       "archived": true,
@@ -73,15 +79,15 @@
       "trashed": false
     },
     {
-      "img": "https://google.com",
-      "title": "Lorem ipsum dolor sit amet",
-      "text": "Lorem ipsum dolor sit ",
-      "color": "#333",
-      "categories": "i̇mportant",
+      "id": "42a899ee-442e-44db-b304-39320e9ae895",
+      "img": "",
+      "title": "dcdcdc",
+      "text": "",
+      "color": "",
+      "categories": [],
       "show": true,
       "pinned": false,
-      "archived": false,
-      "trashed": false
+      "archived": false
     }
   ],
   "categories": [

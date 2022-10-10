@@ -2,23 +2,6 @@
     <div>
         <v-list shaped>
             <v-list-item-group v-model="selectedItem" color="primary">
-                <v-list>
-                    <v-list-item link>
-                        <v-list-item-avatar>
-                            <!-- <v-img :src="userData"></v-img> -->
-                        </v-list-item-avatar>
-                        <v-list-item-content>
-                            <v-list-item-title class="text-h6">
-                                {{ userData.username }}
-                            </v-list-item-title>
-                            <v-list-item-subtitle>{{ userData.role }}</v-list-item-subtitle>
-                        </v-list-item-content>
-
-                        <v-list-item-action>
-                            <v-icon>mdi-menu-down</v-icon>
-                        </v-list-item-action>
-                    </v-list-item>
-                </v-list>
                 <router-link tag="span" to="/notes">
                     <v-list-item link>
                         <v-list-item-icon>
@@ -53,13 +36,6 @@
                         <v-list-item-title>Trash</v-list-item-title>
                     </v-list-item>
                 </router-link>
-                <v-list-item link @click="logout">
-                    <v-list-item-icon>
-                        <v-icon>mdi-delete-outline</v-icon>
-                    </v-list-item-icon>
-
-                    <v-list-item-title>Exit</v-list-item-title>
-                </v-list-item>
             </v-list-item-group>
         </v-list>
     </div>
